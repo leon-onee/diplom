@@ -76,6 +76,11 @@ a {
     font-size: 20px;
     margin-bottom: 15px;
 }
+.button:hover {
+    background-color:#3493FF;
+    transition: 0.5s;
+
+}
 .result-img {
     display: block;
     margin: 0 auto;
