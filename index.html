@@ -4,34 +4,36 @@
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="style.css">
     <title>CryptoStego</title>
   </head>
   <body>
-    <div id="content-wrapper">
-      <div class="inner clearfix">
-        <section id="main-content">
-<h4 style="color:blue">Выберете изображение (Не используйте изображение меньше чем 64х64)</h4>
-<p><input type="file" id="file" accept="image/*" /></p>
-<h4 style="color:blue">Введите пароль(необязательно)</h4>
-<p>Пароль: <input type="text" id="pass" value="" placeholder="Нет пароля"/></p>
-<h4 style="color:blue">Результат</h4>
-<p>
-<div id="result" style="background-color: rgba(0,255,0,0.3); padding: 10px 10px 10px 10px;">Выберите изображение и введите текст. Результат покажется тут</div>
-</p>
-<p>
-<img id="resultimg" style="display:none" src="" />
-</p>
-<h4 style="color:blue">Напишите текст для шифрования</h4>
-<p>
-<textarea id="msg" style="width:100%;height:50px;">Этот текст зашифруется в изображение</textarea>
-</p>
-<a href="javascript: writeIMG()" class="button">Шифрование</a>
-<p> </p>
-<p>OR:</p>
-<a href="javascript: readIMG()" class="button" style="background-image: url(images/main-bar1.png);"><span style="color:black">Расфифрование</span></a>
-        </section>
+<div class="wrapper">
+    <div class="main-content">
+      <div class="header">
+        <p>Стеганография</p>
       </div>
-    </div>
+      <div class="row-one">
+          <input class="input-file" type="file" id="file" accept="image/*" />
+         <p>
+           Введите пароль:  <input type="text" id="pass" class="password" value="" placeholder="Необязательно"/>    
+         </p>     
+      </div>
+
+      <div class="row-two">
+          <textarea id="msg" class="textarea-input" placeholder="Введенное сообщение будет зашифровано"></textarea>     
+          <textarea id="result" class="conclusion" placeholder="Выберите изображение и введите текст" readonly></textarea>    
+      </div>
+      <div class="row-tree">
+          <a href="javascript: writeIMG()" class="button">Шифрование</a>
+          <a href="javascript: readIMG()" class="button""><span>Расшифрование</span></a>        
+      </div>          
+          <img class="result-img" id="resultimg" style="display:none" src="" />
+    </div>     
+</div>
+
+
+
 <script type="text/javascript" src="javascripts/jquery.min.js"></script> <!--jQuery is not required by the library. We use it in DEMO page-->
 <!-- CryptoStego JS files.-->
 <script type="text/javascript" src="src/sha512.js"></script>
