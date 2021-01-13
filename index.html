@@ -22,13 +22,17 @@
 
       <div class="row-two">
           <textarea id="msg" class="textarea-input" placeholder="Введенное сообщение будет зашифровано"></textarea>     
-          <textarea id="result" class="conclusion" placeholder="Выберите изображение и введите текст" readonly></textarea>    
+          <textarea id="result" class="conclusion" placeholder="Выберите изображение и введите текст"readonly></textarea>    
       </div>
       <div class="row-tree">
           <a href="javascript: writeIMG()" class="button">Шифрование</a>
-          <a href="javascript: readIMG()" class="button""><span>Расшифрование</span></a>        
-      </div>          
-          <img class="result-img" id="resultimg" style="display:none" src="" />
+          <a href="javascript: readIMG()" class="button"">Расшифрование</a>        
+      </div> 
+      <div class="result-wrapper">
+          <img id="resultimg" class="result-img" style="display:none" src="" />
+          <a href="" id="download" class="button_download" style="display:none">Скачать</a>
+      </div>         
+
     </div>     
 
 
@@ -45,6 +49,8 @@
 <!-- above scripts equivalent to <script type="text/javascript" src="cryptostego.min.js"></script>-->
 <script type="text/javascript">
 function writeIMG(){
+    
+    $("#download").hide();
     $("#resultimg").hide();
     $("#resultimg").attr('src','');
     $("#result").html('Выполняется...');
@@ -52,23 +58,22 @@ function writeIMG(){
         if(writeMsgToCanvas('canvas',$("#msg").val(),$("#pass").val(),0)!=null){
             var myCanvas = document.getElementById("canvas");
             var image = myCanvas.toDataURL("image/png");
-            var element = document.createElement('a');
-            element.setAttribute('href', image);
-            element.setAttribute('download', 'result.png');
-            element.style.display = 'none';
-            document.body.appendChild(element);
-            element.click();
-            document.body.removeChild(element);
+            download.setAttribute('href', image);
+            download.setAttribute('download', 'result.png');
             $("#resultimg").attr('src',image);
             $("#result").html('Получилось!');
+            $("#msg").val('');
             $("#resultimg").show();
+            $("#download").show();
         } else $("#result").html(t);
     }
     loadIMGtoCanvas('file','canvas',writefunc,500);
 }
 function readIMG(){
+    $("#download").hide();
     $("#resultimg").hide();
-    $("#result").html('Processing...');
+    $("#result").html('Выполняется...');
+    $("#msg").val('');
     function readfunc(){
         var t= readMsgFromCanvas('canvas',$("#pass").val(),0);
         if(t!=null){

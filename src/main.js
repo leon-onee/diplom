@@ -72,7 +72,7 @@ function loadIMGtoCanvas(inputid, canvasid, callback, maxsize) {
         };
         reader.readAsDataURL(f);
     } else {
-        alert('NO IMG FILE SELECTED');
-        return 'ERROR PROCESSING IMAGE!';
+        alert('Файл не выбран');
+        return 'Ошибка обработки изображения!';
     }
 }

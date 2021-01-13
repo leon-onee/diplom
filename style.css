@@ -19,7 +19,7 @@ a {
     background-color: #3493FF;
     width: 100%;
     height: 80px;
-    margin: 15px 0px;
+    margin-bottom: 15px;
     font-family: 'Pacifico', cursive;
     font-size: 45px;
     color: #fff;
@@ -76,12 +76,32 @@ a {
     font-size: 20px;
     margin-bottom: 15px;
 }
-.button:hover {
+.button:hover,  {
     background-color:#3493FF;
     transition: 0.5s;
+}
+.result-wrapper {
 
 }
 .result-img {
     display: block;
     margin: 0 auto;
+}
+.button_download {
+    width: 230px;
+    height: 60px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1BBC9B;
+    color: #fff;
+    font-weight: 700;
+    font-size: 20px;
+    margin-top: 15px;
+    margin: 15px auto;
+}
+.button_download:hover {
+    background-color:#3493FF;
+    transition: 0.5s;
 }
